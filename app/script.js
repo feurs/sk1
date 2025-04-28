@@ -1,12 +1,15 @@
 // Update timezones
 function updateTimezones() {
+    const tzElement = document.getElementById('timezones');
+    if (!tzElement) return;  // ak neni element timezones, tak nič nerob
+
     const now = new Date();
     const options = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
     const bratislava = now.toLocaleTimeString('sk-SK', { ...options, timeZone: 'Europe/Bratislava' });
     const newYork = now.toLocaleTimeString('en-US', { ...options, timeZone: 'America/New_York' });
     const tokyo = now.toLocaleTimeString('ja-JP', { ...options, timeZone: 'Asia/Tokyo' });
 
-    document.getElementById('timezones').innerHTML = `
+    tzElement.innerHTML = `
         <p>Bratislava: ${bratislava}</p>
         <p>New York: ${newYork}</p>
         <p>Tokyo: ${tokyo}</p>
