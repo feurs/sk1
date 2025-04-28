@@ -1,4 +1,5 @@
 #!/bin/bash
+
 echo "➡️  Pridávam všetky zmeny do Git..."
 git add .
 
@@ -7,6 +8,7 @@ read commitMessage
 
 if [ -n "$(git status --porcelain)" ]; then
     git commit -m "$commitMessage"
+
     echo "➡️  Pushujem na GitHub (origin)..."
     git push origin main
 

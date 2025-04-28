@@ -2,19 +2,31 @@
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
-    <title>Moja Aplikácia 2.0</title>
+    <title>Domov | Moja Aplikácia</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Vitaj na mojej aplikácii!</h1>
-        <p id="date"></p>
-        <p id="time"></p>
-        <p>Počet návštev: <span id="visits">Načítavam...</span></p>
-        <p>Vaša IP adresa: <span id="ip">Načítavam...</span></p>
+    <header>
+        <div class="nav-left">
+            <h1>Moja Aplikácia</h1>
+        </div>
+        <div class="nav-right">
+            <a href="login.html">Prihlásenie</a>
+            <a href="register.html">Registrácia</a>
+            <button id="theme-toggle">🌙</button>
+        </div>
+    </header>
 
-        <button id="toggle-mode">Prepni režim</button>
-    </div>
+    <main>
+        <h2>Aktuálny čas</h2>
+        <div id="timezones"></div>
+
+        <h2>Dnešný dátum</h2>
+        <p id="date"></p>
+
+        <h2>Počet návštev</h2>
+        <p id="visits">Načítavam...</p>
+    </main>
 
     <script src="script.js"></script>
 </body>
