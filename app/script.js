@@ -20,8 +20,11 @@ updateTimezones();
 
 // Update date
 function updateDate() {
+    const dateElement = document.getElementById('date');
+    if (!dateElement) return; // ak neexistuje element #date, nič nerobíme
+
     const today = new Date();
-    document.getElementById('date').innerText = today.toLocaleDateString();
+    dateElement.innerText = today.toLocaleDateString();
 }
 updateDate();
 
