@@ -1,7 +1,7 @@
 {
   "name": "moja-aplikacia-2.0",
   "version": "1.0.0",
-  "description": "Webstránka so živým časom, počtom návštev, IP adresou a dark/light módom.",
+  "description": "Webová aplikácia pre zobrazovanie času, počtu návštev, registráciu a správu študentov.",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js"
@@ -10,5 +10,5 @@
     "bcryptjs": "^2.4.3",
     "express": "^4.18.2",
     "pg": "^8.11.1"
+  }
 }
-
