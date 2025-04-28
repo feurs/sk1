@@ -1,7 +1,7 @@
 {
-  "name": "moja-aplikacia",
+  "name": "moja-aplikacia-2.0",
   "version": "1.0.0",
-  "description": "Webstránka s počtom návštev a aktuálnym časom",
+  "description": "Webstránka so živým časom, počtom návštev, IP adresou a dark/light módom.",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js"
@@ -11,4 +11,3 @@
     "pg": "^8.11.0"
   }
 }
-

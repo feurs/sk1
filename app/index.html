@@ -2,15 +2,20 @@
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
-    <title>Moja Aplikácia</title>
+    <title>Moja Aplikácia 2.0</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Vitaj na mojej aplikácii!</h1>
-    <p id="time"></p>
-    <p>Počet návštev: <span id="visits">Načítava sa...</span></p>
+    <div class="container">
+        <h1>Vitaj na mojej aplikácii!</h1>
+        <p id="date"></p>
+        <p id="time"></p>
+        <p>Počet návštev: <span id="visits">Načítavam...</span></p>
+        <p>Vaša IP adresa: <span id="ip">Načítavam...</span></p>
+
+        <button id="toggle-mode">Prepni režim</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-

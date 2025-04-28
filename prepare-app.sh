@@ -1,8 +1,4 @@
 #!/bin/bash
-# Skript na prípravu aplikácie
-
 echo "Budujem Docker image..."
-docker build -t moja-aplikacia .
-
-echo "Hotovo. Teraz môžeš pushnuť repozitár na GitHub a deploynúť na Railway."
-
+docker build -t moja-aplikacia-2.0 .
+echo "Hotovo. Teraz môžeš pushnuť projekt."
