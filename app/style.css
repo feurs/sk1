@@ -60,3 +60,20 @@ button[type="submit"] {
 .dark-mode header {
     background: #3700b3;
 }
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #03dac5;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.back-button:hover {
+    background: #018786;
+    color: #fff;
+}
