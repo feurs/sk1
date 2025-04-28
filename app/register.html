@@ -10,16 +10,20 @@
         <div class="nav-left">
             <h1>Moja Aplikácia</h1>
         </div>
+        <div class="nav-right">
+            <button id="theme-toggle">🌙</button>
+        </div>
     </header>
 
     <main>
         <h2>Registrácia</h2>
         <form id="register-form">
-            <input type="text" placeholder="Používateľské meno" id="reg-username" required>
-            <input type="password" placeholder="Heslo" id="reg-password" required>
+            <input type="text" id="reg-username" placeholder="Používateľské meno" required>
+            <input type="password" id="reg-password" placeholder="Heslo" required>
             <button type="submit">Registrovať sa</button>
         </form>
         <p id="register-message"></p>
+
         <a href="index.html" class="back-button">⬅️ Späť na hlavnú stránku</a>
     </main>
 
