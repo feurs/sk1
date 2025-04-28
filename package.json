@@ -1,0 +1,14 @@
+{
+  "name": "moja-aplikacia",
+  "version": "1.0.0",
+  "description": "Webstránka s počtom návštev a aktuálnym časom",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.11.0"
+  }
+}
+

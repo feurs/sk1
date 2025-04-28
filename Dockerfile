@@ -1,9 +1,13 @@
-# Používame oficiálny NGINX image
-FROM nginx:alpine
+FROM node:18-alpine
 
-# Kopírujeme obsah nášho app adresára do nginx servera
-COPY ./app /usr/share/nginx/html
+WORKDIR /app
 
-# Otvoríme port 80
-EXPOSE 80
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["node", "server/server.js"]
 
