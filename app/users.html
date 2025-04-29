@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <title>Zoznam používateľov</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="nav-left">
+            <h1>Moja Aplikácia</h1>
+        </div>
+        <div class="nav-right">
+            <button id="theme-toggle">🌙</button>
+        </div>
+    </header>
+
+    <main>
+        <h2>Zoznam Používateľov</h2>
+        <table id="users-table">
+            <thead>
+                <tr>
+                    <th>Používateľské meno</th>
+                    <th>Email</th>
+                    <th>Krajina</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <a href="index.html" class="back-button">⬅️ Späť na hlavnú stránku</a>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        fetch('/auth/users')
+            .then(response => response.json())
+            .then(users => {
+                const tableBody = document.querySelector('#users-table tbody');
+                users.forEach(user => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${user.username}</td>
+                        <td>${user.email}</td>
+                        <td>${user.country}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            });
+    </script>
+</body>
+</html>

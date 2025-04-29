@@ -67,13 +67,15 @@ if (registerForm) {
     registerForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const username = document.getElementById('reg-username').value;
+        const email = document.getElementById('reg-email').value;
+        const country = document.getElementById('reg-country').value;
         const password = document.getElementById('reg-password').value;
 
         try {
             const response = await fetch('/auth/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, password })
+                body: JSON.stringify({ username, email, country, password })
             });
             const data = await response.json();
             document.getElementById('register-message').innerText = data.message || data.error;
@@ -82,6 +84,7 @@ if (registerForm) {
         }
     });
 }
+
 
 // Prihlásenie používateľa
 const loginForm = document.getElementById('login-form');
