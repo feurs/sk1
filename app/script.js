@@ -1,7 +1,7 @@
-// Update timezones
+// Funkcia na aktualizovanie časov v pásmach
 function updateTimezones() {
     const tzElement = document.getElementById('timezones');
-    if (!tzElement) return;  // ak neni element timezones, tak nič nerob
+    if (!tzElement) return;
 
     const now = new Date();
     const options = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
@@ -18,17 +18,17 @@ function updateTimezones() {
 setInterval(updateTimezones, 1000);
 updateTimezones();
 
-// Update date
+// Funkcia na aktualizovanie dátumu
 function updateDate() {
     const dateElement = document.getElementById('date');
-    if (!dateElement) return; // ak neexistuje element #date, nič nerobíme
+    if (!dateElement) return;
 
     const today = new Date();
     dateElement.innerText = today.toLocaleDateString();
 }
 updateDate();
 
-// Fetch visits
+// Fetch návštev
 if (document.getElementById('visits')) {
     fetch('/visits')
         .then(res => res.json())
@@ -40,12 +40,24 @@ if (document.getElementById('visits')) {
         });
 }
 
-// Dark mode toggle
+// Spracovanie témy (svetlá / tmavá) cez localStorage
 const themeToggle = document.getElementById('theme-toggle');
 if (themeToggle) {
+    // Ak bola nastavená tmavá téma predtým, zapneme ju
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeToggle.textContent = '☀️';
+    }
+
     themeToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
-        themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        if (document.body.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+            themeToggle.textContent = '☀️';
+        } else {
+            localStorage.setItem('theme', 'light');
+            themeToggle.textContent = '🌙';
+        }
     });
 }
 
@@ -60,12 +72,9 @@ if (registerForm) {
         try {
             const response = await fetch('/auth/register', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, password })
             });
-
             const data = await response.json();
             document.getElementById('register-message').innerText = data.message || data.error;
         } catch (err) {
@@ -85,12 +94,9 @@ if (loginForm) {
         try {
             const response = await fetch('/auth/login', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, password })
             });
-
             const data = await response.json();
             document.getElementById('login-message').innerText = data.message || data.error;
         } catch (err) {
